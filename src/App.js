@@ -8,16 +8,12 @@ const API_URL = 'https://opentdb.com/api.php?amount=100'
 
 function App() {
 
-  //const [score,setScore] = useState(0);
   const [questions, setQuestions] = useState([]);
-
-  // let counter = 0
-  // console.log(questions[counter])
 
   const getQuestions = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
- 
+    console.log(data.results)
     setQuestions(data.results);
   }
 
@@ -28,9 +24,7 @@ function App() {
   return (
     <div className="App">
       <div className='question-container'>
-        {questions.map((question) => (
-          <Question question={question}/>
-        ))}
+       <Question questions={questions}/>
       </div>
     </div>
   );

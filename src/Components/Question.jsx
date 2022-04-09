@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Answer from './Answer';
 
 
 
-const Question = ({ question }) => {
-    const q = {
-        incorrect_answers: question.incorrect_answers,
-        correct_answer: question.correct_answer
-    }
+const Question = ({ questions }) => {
+    //const [score,setScore] = useState(0);
+    const [iterator, setIterator] = useState(0);
+
+    
 
     return (
-        <div className="question">
-            <div>
-                <p>{question.question}</p>
-            </div>
-            <div>
-                <Answer answer={q}/>
-            </div>
-        </div>
+            <div className="question">
+            {questions.length >0 ?
+            (<>
+                <div>
+                    <p>{questions[0].question}</p>
+                </div>
+                <div>
+                    <Answer answer={{
+                                incorrect_answers: questions[0].incorrect_answers ,
+                                correct_answer: questions[0].correct_answer
+                    }}/>
+                </div>
+            </>) :
+            (<div> 
+                <p> Waiting for question </p>
+            </div>)
+            }
+        </div>  
+        
     )
 
 
