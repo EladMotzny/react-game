@@ -34,6 +34,9 @@ const Question = ({ questions }) => {
                 <p> Waiting for question </p>
             </div>)
             }
+            <div className="score-display">
+                <h1>Score: {score}</h1>
+            </div>
         </div>  
         
     )
