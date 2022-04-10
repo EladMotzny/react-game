@@ -16,7 +16,7 @@ const Answer = ( { answer, onNextQuestion, onRightQuestion } ) => {
             {console.log(answer.ansArr.length)}
             {answer.ansArr.length > 0 ? answer.ansArr.map((ans) => (
                 <button className="answer-btn"
-                onClick={checkCorrectAnswer(ans)}>{ans.text}</button>
+                onClick={() => checkCorrectAnswer(ans)}>{ans.text}</button>
             )) : 'No answers yet'}
         </div>
     )
