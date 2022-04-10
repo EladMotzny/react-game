@@ -1,21 +1,23 @@
 import React from "react";
 
-
 const Answer = ( { answer, onNextQuestion, onRightQuestion } ) => {
-    
+
     const rightAnswer = () => {
         onNextQuestion();
         onRightQuestion();
     }
+
+    const checkCorrectAnswer = (ans) => {
+        ans.isCorrectAnswer ? rightAnswer() : onNextQuestion()
+    }
     
     return (
         <div className="Answer">
-             {answer.incorrect_answers.map((ans) => (
+            {console.log(answer.ansArr.length)}
+            {answer.ansArr.length > 0 ? answer.ansArr.map((ans) => (
                 <button className="answer-btn"
-                onClick={onNextQuestion}>{ans}</button>
-            ))}
-            <button className="answer-btn"
-            onClick={rightAnswer}>{answer.correct_answer}</button> 
+                onClick={checkCorrectAnswer(ans)}>{ans.text}</button>
+            )) : 'No answers yet'}
         </div>
     )
 }
