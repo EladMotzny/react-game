@@ -13,7 +13,6 @@ const Answer = ( { answer, onNextQuestion, onRightQuestion } ) => {
     
     return (
         <div className="Answer">
-            {console.log(answer.ansArr.length)}
             {answer.ansArr.length > 0 ? answer.ansArr.map((ans) => (
                 <button className="answer-btn"
                 onClick={() => checkCorrectAnswer(ans)}>{ans.text}</button>

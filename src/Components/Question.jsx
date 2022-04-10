@@ -22,7 +22,7 @@ const Question = ({ questions }) => {
         setAnsArr(array)
       }
 
-    const getAns = () => {
+    const getAns = (iterator) => {
         const tempArr = [];
         if (questions.length > 0 && 
             questions[iterator].incorrect_answers.length > 0 && 
@@ -42,12 +42,12 @@ const Question = ({ questions }) => {
     }
 
     const nextQuestion = () => {
+        getAns(iterator +1);
         setIterator(iterator => iterator +1);
-        getAns()
     }
  
     useEffect(() => {
-        getAns();
+        getAns(0);
     }, [questions])
 
     return (
